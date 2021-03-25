@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Bienvenido"
+        android:text="Bienvenido a"
         android:textSize="20dp"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
