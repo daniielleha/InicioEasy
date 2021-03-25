@@ -37,5 +37,4 @@ public class GlobalClass extends Application {
                 .build()
         );
     }
-
 }

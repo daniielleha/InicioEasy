@@ -23,7 +23,7 @@ import es.dmoral.toasty.Toasty;
 
 public class MainActivity extends AppCompatActivity {
 
-    ParseUser parseUser =ParseUser.getCurrentUser();
+    ParseUser parseUser = ParseUser.getCurrentUser();
     private static final String TAG = MainActivity.class.getSimpleName();
     private MaterialButton tst;
     private EditText correo;
@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
         tst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*ParseUser currentUser = ParseUser.getCurrentUser();
-                if (currentUser != null){
+                ParseUser currentUser = ParseUser.getCurrentUser();
+                /*if (currentUser != null){
                     String userId = currentUser.getObjectId();
                     String username = currentUser.getUsername();
                     String objectID = currentUser.getObjectId();
@@ -53,11 +53,12 @@ public class MainActivity extends AppCompatActivity {
 
                     HashMap<String, Object> params = new HashMap<String, Object>();
                     /*try {*/
-                    params.put("correo", correo.getText().toString());
+                    params.put("email", correo);
                 /*    //Log.d(TAG, "onClick: "+ String.valueOf(parseUser));
                 } catch (Exception e){
                     e.printStackTrace();
                 }*/
+
                     ParseCloud.callFunctionInBackground("getUserNameByEmail", params, new FunctionCallback() {
 
                         @Override
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void done(Object o, Throwable throwable) {
-                            Log.d(TAG, String.valueOf(o));
+                            Log.d("--->TestKapital", String.valueOf(o));
                             if (o != null) {
                                 HashMap result = (HashMap) o;
                                 int code = Integer.parseInt(String.valueOf(result.get("code")));
@@ -90,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
                     });
                 }
 
-                            //HashMap response = (HashMap) result.get("response");
-                            //Log.d(TAG, "done: " + response.toString());
+                //HashMap response = (HashMap) result.get("response");
+                //Log.d(TAG, "done: " + response.toString());
                             /*for (int i = 0; i < response.size(); i++) {
                                 HashMap responsetmp = (HashMap) response.get(i);
                                 Log.d(TAG, "done: " + response.get(i));
@@ -99,11 +100,14 @@ public class MainActivity extends AppCompatActivity {
                                     planes = (ArrayList) responsetmp.get("plans");
                                 }
                             }*/
-                      /*  } *//*else if (code == 400) {
+                /*  } *//*else if (code == 400) {
                             Toast.makeText(getApplicationContext(), (CharSequence) result.get("msg"), Toast.LENGTH_LONG).show();
                         }*//*
                     }
-                */}});
-
+                */
             }
-        }
+        });
+
+    }
+
+}
